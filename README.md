@@ -29,17 +29,23 @@ cd soroban-4626
 
 stellar contract build
 
-stellar contract optimize --wasm target/wasm32-unknown-unknown/release/vault.wasm
+stellar contract optimize --wasm target/wasm32v1-none/release/vault.wasm
 
-stellar contract deploy `
-  --wasm target/wasm32-unknown-unknown/release/vault.optimized.wasm `
-  --source bob `
+stellar contract deploy \
+  --wasm target/wasm32v1-none/release/vault.wasm \
+  --source bob \
   --network testnet
 
 // Copy-paste deployed contract address, bob's (or similar) address and underlying asset address:
 
+Sample: https://lab.stellar.org/r/testnet/contract/CA7BZCDSB2AYTFMCP3ABYU3JFN3MC7MRKZ2KY5EY6UUHR37OSRDV3L67
+
 stellar contract invoke --id <contract_address> --source bob --network testnet -- initialize --admin <admin_address> --asset_address <asset_address>
-```
+
+
+stellar contract invoke --id CA7BZCDSB2AYTFMCP3ABYU3JFN3MC7MRKZ2KY5EY6UUHR37OSRDV3L67 --source bob --network testnet -- initialize --admin bob --asset_address CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA --lock_timestamp 86000 --unlock_timestamp 604800
+
+
 
 [Market Maker Commands](COMMANDS.md)
 

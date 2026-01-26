@@ -1,6 +1,7 @@
 [workspace]
 resolver = "2"
 members = ["contracts/*"]
+license = "Apache-2.0"
 
 [workspace.dependencies]
 soroban-sdk = "21.0.0"
